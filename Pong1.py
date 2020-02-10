@@ -2,6 +2,8 @@
 # Purely functional, no classes
 
 import turtle
+import os
+
 
 wn = turtle.Screen()
 wn.title("Pong by Joshua-Wood39")
@@ -99,10 +101,12 @@ while True:
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy *= -1
+        os.system("afplay click.wav&")
 
     if ball.ycor() < -283:
         ball.sety(-283)
         ball.dy *= -1
+        os.system("afplay click.wav&")
 
     if ball.xcor() > 390:
         ball.goto(0, 0)
@@ -124,7 +128,9 @@ while True:
     if (ball.xcor() > 330 and ball.xcor() < 350) and (ball.ycor() < paddle_b.ycor() + 59 and ball.ycor() > paddle_b.ycor() - 59):
         ball.setx(330)
         ball.dx *= -1
+        os.system("afplay click.wav&")
 
     if (ball.xcor() < -330 and ball.xcor() > -350) and (ball.ycor() < paddle_a.ycor() + 59 and ball.ycor() > paddle_a.ycor() - 59):
         ball.setx(-330)
         ball.dx *= -1
+        os.system("afplay click.wav&")
