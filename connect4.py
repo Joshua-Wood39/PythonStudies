@@ -11,7 +11,7 @@ def create_board():
 
 
 def drop_piece(board, row, col, piece):
-    board[row][col] == piece
+    board[row][col] = piece
 
 
 def is_valid_location(board, col):
@@ -25,8 +25,12 @@ def get_next_open_row(board, col):
             return r
 
 
+def print_board(board):
+    print(np.flip(board, 0))  # Putting Row 0 on the bottom
+
+
 board = create_board()
-print(board)
+print_board(board)
 
 game_over = False
 turn = 0
@@ -47,6 +51,8 @@ while not game_over:
         if is_valid_location(board, col):
             row = get_next_open_row(board, col)
             drop_piece(board, row, col, 2)
+
+    print_board(board)
 
     turn += 1
     turn = turn % 2
